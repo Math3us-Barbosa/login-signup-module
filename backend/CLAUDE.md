@@ -11,7 +11,6 @@ Projeto de portfólio para vagas de Engenharia de Software: cada decisão de arq
 - **Backend:** Java 21, Spring Boot 4.1.x, Maven, Spring Security (JWT), Spring Data JPA, Bean Validation, Lombok
 - **Banco:** PostgreSQL 16, migrations com Flyway
 - **Testes:** JUnit 5, AssertJ, Mockito, Testcontainers
-- **Frontend:** React + Vite
 - **Local:** Docker Compose
 
 Spring Boot 4 é uma major recente e a maioria dos tutoriais ainda mira 3.x. Siga a documentação do Boot 4, não padrões de 3.x.
@@ -84,13 +83,6 @@ Toda funcionalidade nasce com teste.
 - **Controller:** `@WebMvcTest` + MockMvc com service mockado. Cobre status, contrato JSON e validação.
 - **Integração:** `@SpringBootTest` + Testcontainers com PostgreSQL real. Nunca H2 — diverge do Postgres e mascara bugs.
 - Asserções com AssertJ. Nomes descrevem comportamento: `deveRetornar409QuandoEmailJaCadastrado`.
-
-# Frontend (React + Vite)
-
-- Componentes funcionais e hooks. Lógica reaproveitável em hooks customizados.
-- Chamadas à API centralizadas em `src/services/`, com instância Axios (base URL por env, interceptor para o JWT).
-- Estado local nos componentes; Context API só para sessão.
-- Acesso ao token centralizado em um único módulo, nunca espalhado pelos componentes.
 
 # Fluxo com Claude Code
 
