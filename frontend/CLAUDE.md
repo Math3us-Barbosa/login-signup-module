@@ -12,19 +12,23 @@ cadastro até que sejam especificados.
 # Stack
 
 - React + Vite
-- React Router (só as rotas /login e /cadastro por enquanto)
+- React Router (rotas /login, /cadastro e /conta — essa última é um
+  placeholder autenticado mínimo pra fechar o fluxo, não um dashboard)
 - Axios para chamadas HTTP
+- Tailwind CSS v4 (via `@tailwindcss/vite`, sem `tailwind.config.js`/PostCSS
+  manual) — tokens de design (cor, fonte) em `src/index.css` via `@theme`
 - Vitest + React Testing Library para testes
 
 # Estrutura
 
 ```
 src/
-├── pages/       Login/, Cadastro/
+├── pages/       Login/, Cadastro/, Conta/ (placeholder pós-login)
 ├── components/  só o que for reaproveitado entre as duas telas
 ├── hooks/       hooks customizados
 ├── services/    instância Axios + chamadas à API
-└── context/     sessão (Context API) — não usar Context para outro estado
+├── context/     sessão (Context API) — não usar Context para outro estado
+└── utils/       funções puras (validação, formatação) sem estado nem I/O
 ```
 
 # Integração com o backend
