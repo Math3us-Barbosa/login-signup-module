@@ -2,6 +2,7 @@ package com.matheus.loginsignupmodule.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -75,6 +76,12 @@ class AuthControllerTest {
 				.andExpect(status().isBadRequest())
 				.andExpect(jsonPath("$.errors.email").exists())
 				.andExpect(jsonPath("$.errors.senha").exists());
+	}
+
+	@Test
+	void deveRetornar200NoHealthCheck() throws Exception {
+		mockMvc.perform(get("/api/auth/health"))
+				.andExpect(status().isOk());
 	}
 
 }
